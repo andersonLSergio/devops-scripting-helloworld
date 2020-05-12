@@ -1,0 +1,24 @@
+#Tasks should be executed from this branch
+branch: master
+
+#List of Available tasks
+tasks:
+  - build:
+      cmd: mvn clean install
+  - compress:
+      cmd: zip -r scripting.zip target/
+  - integration:
+      cmd: mvn verify
+
+
+#Pipeline execution order way to run my steps
+pipelines:
+  - build:
+     - build
+  - release:
+      - build
+      - integration
+      - compress
+  - foo:
+     - invalid
+      
