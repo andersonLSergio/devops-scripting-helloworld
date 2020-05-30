@@ -1,5 +1,5 @@
 #Tasks should be executed from this branch
-branch: master
+branch: fix/pipeline-manifest
 
 #List of Available tasks
 tasks:
@@ -9,6 +9,8 @@ tasks:
       cmd: zip -r scripting.zip target/
   - integration:
       cmd: mvn verify
+  - cmdless_task:
+      typo: echo TYPO
 
 
 #Pipeline execution order way to run my steps
@@ -20,5 +22,6 @@ pipelines:
       - integration
       - compress
   - foo:
-     - invalid
-      
+      - invalid
+  - bar:
+      - cmdless_task
