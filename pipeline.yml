@@ -1,5 +1,5 @@
 #Tasks should be executed from this branch
-branch: fix/pipeline-manifest
+branch: feature/new-feature
 
 #List of Available tasks
 tasks:
